@@ -9,7 +9,9 @@ export default new Vuex.Store({
   },
 
   getters: {
-    productsCount () {}
+    availableProducts (state, getters) {
+      return state.products.filter(product => product.inventory > 0)
+    }
   },
 
   actions: {
